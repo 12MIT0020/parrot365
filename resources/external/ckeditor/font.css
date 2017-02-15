@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Calibri";
+    src: url( "../fonts/Calibri.eot" ); /* IE */
+    src: local("Calibri"), url("../fonts/Calibri.ttf") format("truetype"); /*non-IE*/
+}
+
+@font-face {
+    font-family: "Citrix Sans";
+    src: url( "../fonts/CitrixSans-Light.eot" ); /* IE */
+    src: local("Citrix Sans"), url("../fonts/CitrixSans-Light.ttf") format("truetype"); /*non-IE*/
+}

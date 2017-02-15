@@ -1,0 +1,27 @@
+{
+    "bower": {
+      	"dependencies": {
+            "jquery": "",
+            "angular": "",
+            "angular-animate": "",
+            "angular-notify": "",
+            "angular-toastr": "",
+            "angular-ui-router": "",
+            "dropzone": "",
+            "angular-file-saver": "",
+            "es5-shim": "",
+            "angular-ui-tree": "",
+            "animate.css": "",
+            "angular-sanitize": "",
+            "moment": "",
+            "office-ui-fabric": "",
+            "ng-office-ui-fabric": "",
+            "underscore": "",
+            "ngCordova": "",
+            "ng-notify": "",
+            "angular-froala":"",
+            "font-awesome": ""
+  	    }
+    },
+    "dependencies":["core", "file-viewer", "wit-viewer"]
+}

@@ -1,0 +1,26 @@
+{
+  "apiUrls":[
+    {
+    "type":"prod",
+    "url":"https://wittyapi.wittyparrot.com/wittyparrot/api",
+    "campaignUrl":"https://wittyapi.wittyparrot.com/campaign/api",
+    "ssoUrl":"https://wit.wittyparrot.com",
+    "urlevent":"https://events.wittyparrot.com/wittyevents/event",
+    "analyticBaseUrl": "https://dsapi.wittyparrot.com/wittyparrotds/dsapi",
+    "emailAnalyticsUrl" : "http://emailevents.wittyparrot.com:8080",
+    "host":"o365widget",
+    "flag":false
+    },
+    {
+    "type":"qa",
+    "url":"https://qawittyapi.wittyparrot.com/wittyparrot/api",
+    "campaignUrl":"https://qawittyapi.wittyparrot.com/campaign/api",
+    "urlevent":"https://qaevents.wittyparrot.com/wittyevents/event",
+    "ssoUrl":"https://qaweb2.wittyparrot.com",
+    "analyticBaseUrl": "https://qadsapi.wittyparrot.com/wittyparrotds/dsapi",
+    "emailAnalyticsUrl" : "https://qaevents.wittyparrot.com",
+    "host": "qaweb2",
+    "flag":true
+    }
+  ]
+}

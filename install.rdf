@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+
+		<em:id>{1ef9db51-078a-4f24-8af3-f702327a9d10}</em:id>
+		<em:name>WittyParrot</em:name>
+		<em:version>1.0</em:version>
+		<em:description>WittyParrot</em:description>
+		<em:creator>Ranjit Kumar Singh</em:creator>
+		<!-- optional items -->
+		<em:homepageURL>index.html</em:homepageURL>
+		<em:aboutURL>http://www.wittyparrot.com/one-voice-about-us.html</em:aboutURL>
+		<em:iconURL>resources/assets/images/widget_logo.png</em:iconURL>
+		<em:updateURL>http://sampleextension.mozdev.org/update.rdf</em:updateURL>
+		<em:type>2</em:type> <!-- type=extension -->
+
+                <!-- Firefox -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{04e56cda-86a2-4d63-b50a-2088c9a88728}</em:id>
+				<em:minVersion>0.9</em:minVersion>
+				<em:maxVersion>1.0</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+                <!-- This is not needed for Firefox 1.1 and later. Only include this
+                     if you want to make your extension compatible with older versions -->
+		<em:file>
+			<Description about="urn:mozilla:extension:file:wittyparrot.jar">
+				<em:package>content/</em:package>
+				<!-- optional items -->
+				<em:skin>skin/classic/</em:skin>
+				<em:locale>locale/en-US/</em:locale>
+				<em:locale>locale/ru-RU/</em:locale>
+			</Description>
+		</em:file>
+	</Description>
+
+</RDF>

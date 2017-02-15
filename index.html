@@ -1,0 +1,19 @@
+<!doctype html><html ng-app="wpoffice" class="flex layout-column layout-fill"><head><meta charset="utf-8"><title>Parrot365</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="/resources/assets/fabric/css/fabric.css"><link rel="stylesheet" href="/resources/assets/roboto/roboto.css"><link rel="stylesheet" href="/resources/assets/font/awiconfont.css"><link href="external-plugin/ui-bootstrap/bootstrap.min-v3.3.5.css" rel="stylesheet"><link rel="stylesheet" href="styles/vendor-6213da9b39.css"><link rel="stylesheet" href="styles/app-dfe215329f.css"></head><body class="flex-auto layout-column layout-fill"><!--[if lt IE 10]>
+ <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+ <![endif]--><div class="layout-column flex-auto pad-0 col-xs-12 col-md-6 app-container" ng-controller="MainController as main"><div class="container-fluid flex layout-column col-xs-12 pad-0 main-view-container"><div click-outside="" ui-view="" class="flex layout-column"></div></div></div><iframe id="witty-download" style="display:none"></iframe><script src="https://ajax.microsoft.com/ajax/4.0/1/MicrosoftAjax.js" type="text/javascript"></script><script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script><script type="text/javascript" src="external-plugin/tinymce/tinymce.min.js"></script><script src="scripts/vendor-46d0b46bd3.js"></script><script src="scripts/app-faa72f8998.js"></script><script src="scripts/partials-5ad4464fc2.js"></script><script type="text/javascript" src="resources/external/ckeditor/ckeditor.js?version=1"></script><script type="text/javascript" src="external-plugin/date-picker/picker.date.js"></script><script type="text/javascript" src="external-plugin/date-picker/picker.js"></script><script type="text/javascript" src="external-plugin/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script><script type="text/javascript">
+Office.initialize = function (reason) {
+       console.log('inside office initialize');
+
+	    if (Office.context.document) {
+		//getAllSelectedContentControl();
+	} else {
+		ngNotify.set('Please reload Parrot365', 'error');
+	}
+	   // if (reason == "inserted")
+	    //write("The add-in was just inserted.");
+
+	    //if (reason == "documentOpened")
+	    //write("The add-in is already part of the document.");
+	   //});
+   }
+</script></body></html>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+  xsi:type="MailApp">
+  <Id>d7a96517-fda5-4516-bc36-d2eca92c21c7</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Parrot365</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Parrot365" />
+  <Description DefaultValue="Parrot365 for Outlook"/>
+  <IconUrl DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_128px.png" />
+  <HighResolutionIconUrl DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_128px.png" />
+  <SupportUrl DefaultValue="http://support.wittyparrot.com/support/home" />
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="MailBox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <!-- These elements support older clients that don't support add-in commands -->
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+
+        <!-- Add App-Url For Mac-Outlook Here -->
+        <!-- <SourceLocation DefaultValue="Your https url"/> -->
+        <SourceLocation DefaultValue="https://parrot365.wittyparrot.com?source=outlook" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://parrot365.wittyparrot.com?source=outlook" />
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit" />
+    <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit" />
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+    <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Read" />
+  </Rule>
+  <!--Rule xsi:type="RuleCollection" Mode="Or">
+  <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit" />
+  <Rule xsi:type="RuleCollection" Mode="And">
+    <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit" />
+    <Rule xsi:type="ItemHasKnownEntity" EntityType="Address" />
+  </Rule>
+  </Rule-->
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox" />
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <!-- Custom pane, only applies to read form -->
+          <ExtensionPoint xsi:type="CustomPane">
+            <RequestedHeight>250</RequestedHeight>
+            <SourceLocation resid="customPaneUrl"/>
+            <Rule xsi:type="RuleCollection" Mode="Or">
+              <Rule xsi:type="ItemIs" ItemType="Message"/>
+              <Rule xsi:type="ItemIs" ItemType="AppointmentAttendee"/>
+            </Rule>
+          </ExtensionPoint>
+
+          <!-- Message compose form -->
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgComposeDemoGroup">
+                <Label resid="groupLabel" />
+                <!-- Task pane button -->
+                <Control xsi:type="Button" id="msgComposeOpenPaneButton">
+                  <Label resid="paneComposeButtonLabel" />
+                  <Supertip>
+                    <Title resid="paneComposeSuperTipTitle" />
+                    <Description resid="paneComposeSuperTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="green-icon-16" />
+                    <bt:Image size="32" resid="green-icon-32" />
+                    <bt:Image size="80" resid="green-icon-80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="composeTaskPaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
+          <!-- Appointment compose form -->
+          <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="apptComposeDemoGroup">
+                <Label resid="groupLabel" />
+                <!-- Task pane button -->
+                <Control xsi:type="Button" id="apptComposeOpenPaneButton">
+                  <Label resid="paneComposeButtonLabel" />
+                  <Supertip>
+                    <Title resid="paneComposeSuperTipTitle" />
+                    <Description resid="paneComposeSuperTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="green-icon-16" />
+                    <bt:Image size="32" resid="green-icon-32" />
+                    <bt:Image size="80" resid="green-icon-80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="composeTaskPaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
+          <!-- Message read form -->
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgReadDemoGroup">
+                <Label resid="groupLabel" />
+                <!-- Task pane button -->
+                <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                  <Label resid="paneReadButtonLabel" />
+                  <Supertip>
+                    <Title resid="paneReadSuperTipTitle" />
+                    <Description resid="paneReadSuperTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="green-icon-16" />
+                    <bt:Image size="32" resid="green-icon-32" />
+                    <bt:Image size="80" resid="green-icon-80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="readTaskPaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
+          <!-- Appointment read form -->
+          <ExtensionPoint xsi:type="AppointmentAttendeeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="apptReadDemoGroup">
+                <Label resid="groupLabel" />
+                <!-- Task pane button -->
+                <Control xsi:type="Button" id="apptReadOpenPaneButton">
+                  <Label resid="paneReadButtonLabel" />
+                  <Supertip>
+                    <Title resid="paneReadSuperTipTitle" />
+                    <Description resid="paneReadSuperTipDescription" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="green-icon-16" />
+                    <bt:Image size="32" resid="green-icon-32" />
+                    <bt:Image size="80" resid="green-icon-80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="readTaskPaneUrl" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <!-- Blue icon -->
+        <bt:Image id="blue-icon-16" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/widget_logo.png"/>
+        <bt:Image id="blue-icon-32" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_32px.png"/>
+        <bt:Image id="blue-icon-80" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_80px.png"/>
+        <!-- Red icon -->
+        <bt:Image id="red-icon-16" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/widget_logo.png"/>
+        <bt:Image id="red-icon-32" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_32px.png"/>
+        <bt:Image id="red-icon-80" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_80px.png"/>
+        <!-- Green icon -->
+        <bt:Image id="green-icon-16" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/widget_logo.png"/>
+        <bt:Image id="green-icon-32" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_32px.png"/>
+        <bt:Image id="green-icon-80" DefaultValue="https://parrot365.wittyparrot.com/resources/assets/images/wp_logo_80px.png"/>
+      </bt:Images>
+      <bt:Urls>
+
+        <!-- Add App-Url For window-Outlook Here -->
+        <bt:Url id="readTaskPaneUrl" DefaultValue="https://parrot365.wittyparrot.com?source=outlook" />
+        <bt:Url id="composeTaskPaneUrl" DefaultValue="https://parrot365.wittyparrot.com?source=outlook" />
+        <bt:Url id="customPaneUrl" DefaultValue="https://parrot365.wittyparrot.com?source=outlook" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="groupLabel" DefaultValue=" "/>
+        <!-- Compose mode -->
+        <bt:String id="paneComposeButtonLabel" DefaultValue="WittyParrot"/>
+
+        <bt:String id="paneComposeSuperTipTitle" DefaultValue="Amplify Efficiency & Effectiveness"/>
+
+        <!-- Read mode -->
+        <bt:String id="paneReadButtonLabel" DefaultValue="WittyParrot"/>
+        <bt:String id="paneReadSuperTipTitle" DefaultValue="WittyParrot"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <!-- Compose mode -->
+        <bt:String id="paneComposeSuperTipDescription" DefaultValue="Parrot365 for Outlook Addin improves productivity, accuracy and consistency in communication."/>
+        <!-- Read mode -->
+        <bt:String id="paneReadSuperTipDescription" DefaultValue="Parrot365 for Outlook Addin improves productivity, accuracy and consistency in communication."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

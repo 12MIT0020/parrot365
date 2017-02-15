@@ -1,0 +1,29 @@
+{
+	"name": "Parrot365",
+	"version": "1.0",
+	"manifest_version": 2,
+	"description": "Parrot365 extension provides improved productivity, accuracy and consistency in communication.",
+	"browser_action": {
+		"default_icon": "resources/assets/images/wp_logo_96px.png"
+	},
+	"background": {
+    "scripts": ["inject-script/jquery.min.js", "inject-script/cookies.js", "inject-script/background.js", "popup.js"],
+		"persistent": false
+  },
+	"content_scripts": [
+	{
+		"matches": ["<all_urls>"],
+		"js": ["inject-script/jquery.min.js", "inject-script/webclip.js"]
+	}
+	],
+	"icons": { "16": "resources/assets/images/wp_logo_96px.png","48": "resources/assets/images/wp_logo_128px.png"},
+  "content_security_policy": "script-src 'self' https://ajax.microsoft.com/ajax/4.0/1/MicrosoftAjax.js 'sha256-V9rGTPjBoHNIyI+J5vfgsGRyO3rcamnp6tmLKfCNBdA=' https://appsforoffice.microsoft.com/lib/1/hosted/Office.js 'sha256-5RSEkXa8cq7CS+NwPc7sBpiX4avw/+EeSs9QPojiuJQ=' https://appsforoffice.microsoft.com/lib/1/hosted/o15apptofilemappingtable.js 'sha256-fV8FgKFnRVmZ4E1Eh0pn6hlbSipVh2Csp4JRhyg+/OE='; object-src 'self'",
+	"minimum_chrome_version": "18",
+	"permissions": ["cookies", "contextMenus", "http://*/*", "https://*/*", "unlimitedStorage", "tabs", "notifications", "activeTab"],
+	"web_accessible_resources": [
+		"bower_components/*", "app/*", "external-libraries/*", "inject-script/*"
+	],
+	"externally_connectable": {
+  "matches": ["*://*.google.com/*"]
+	}
+}
